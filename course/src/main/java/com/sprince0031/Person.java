@@ -4,10 +4,16 @@ import com.sprince0031.attributes.Name;
 
 public class Person {
 
+    private static int personCount = 0;
     public Person () {
         // Explicitly defined default constructor for no real reason. 
-        
+        personCount++;
     }
+
+    public static int getPersonCount() {
+        return personCount;
+    }
+
     private String name = "Sprince0031";
     private Name personName = new Name(name);
 
