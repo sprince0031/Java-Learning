@@ -1,6 +1,6 @@
-package com.sprince0031.car.other;
+package com.sprince0031.person;
 
-import com.sprince0031.car.attributes.Name;
+import com.sprince0031.person.attributes.Name;
 
 public class Person {
 

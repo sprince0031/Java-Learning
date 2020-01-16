@@ -1,4 +1,4 @@
-package com.sprince0031.car.attributes;
+package com.sprince0031.person.attributes;
 
 public class Name {
     public String name;

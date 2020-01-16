@@ -1,4 +1,4 @@
-package com.sprince0031.car.other;
+package com.sprince0031.person;
 
 public class Enum {
     public enum LoggingLevel {
