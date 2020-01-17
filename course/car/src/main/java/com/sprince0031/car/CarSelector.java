@@ -30,14 +30,15 @@ public class CarSelector {
         String result = new CarSelector().processArguments(arguments);
         System.out.println(result);
         
-        Porshe porshe = new Porshe();
+        Porshe porshe = new Porshe("Manoj. M");
 
         try {
             porshe.plugInOut();
             porshe.plugInOut();
-            System.out.println("The estimated range left in the Tycan is " + porshe.checkCarRange());
+            System.out.println("The estimated range left in the Tycan is " + porshe.checkCarRange() + " km");
         } finally {
             porshe.close();
         }
+        
     }
 }

@@ -1,7 +1,22 @@
 package com.sprince0031.car;
 
-public class Tesla implements Car, Asset, Property, Loggable {
+public class Tesla implements Car, Asset, Property, Loggable, Cloneable {
     
+    private Name ownerName;
+    private Colour colour;
+    public Tesla(Name ownerName, Colour colour) {
+        this.ownerName = ownerName;
+        this.colour = colour;
+    }
+
+    public static Tesla newInstance(Tesla tesla) {
+        return new Tesla(Name.newInstance(tesla.ownerName), Colour.newInstance(tesla.colour));
+    }
+
+    public void changeOwner(String newOwner) {
+        ownerName = new Name(newOwner);
+    }
+
     public void drive() {
         System.out.println("Tesla driving...");
     }
@@ -11,10 +26,10 @@ public class Tesla implements Car, Asset, Property, Loggable {
     }
 
     public String owner() {
-        return "Sprince0031";
+        return ownerName.name;
     }
 
     public String message() {
-        return "Property of Sprince0031";
+        return "Property of " + ownerName.name;
     }
 }

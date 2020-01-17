@@ -12,14 +12,14 @@ public class CarServiceTest {
 
     @Test
     public void shouldRunDriveMethod() {
-        Car[] cars = {new Tesla(), new Porshe()};
+        Car[] cars = {new Tesla(new Name("Bruce Wayne"), new Colour("Space Grey")), new Porshe("Clark Kent")};
         CarService carService = new CarService();
         carService.drive(cars);
     }
 
     @Test
     public void shouldLogCarMessage() {
-        Loggable[] cars = {new Tesla(), new Porshe()};
+        Loggable[] cars = {new Tesla(new Name("Bruce Wayne"), new Colour("Space Grey")), new Porshe("Clark Kent")};
         CarService carService = new CarService();
         carService.carMessage(cars);
     }

@@ -6,22 +6,44 @@ import java.io.InputStreamReader;
 import java.time.Instant;
 import java.time.Duration;
 
-public class Porshe implements Car, Asset, Property, Loggable {
+public class Porshe implements Car, Asset, Property, Loggable, Cloneable {
+
+    private String owner;
+    private int value = 188960;
+
+    public Porshe(String owner) {
+        this.owner = owner;
+    }
+
+    @Override
+    public Porshe clone() {
+        try {
+            return (Porshe) super.clone();
+        } catch (CloneNotSupportedException e) {
+            // TODO Auto-generated catch block
+            throw new AssertionError();
+        }
+    }
 
     public void drive() {
         System.out.println("Porshe driving...");
     }
 
     public int value() {
-        return 188960;
+        return value;
     }
 
     public String owner() {
-        return "Manoj. M";
+        return owner;
+    }
+
+    public void sellCar(String newOwner, int newValue) {
+        owner = newOwner;
+        value = newValue;
     }
 
     public String message() {
-        return "Property of Manoj. M";
+        return "Property of " + owner;
     }
 
     BufferedReader stringInput = new BufferedReader(new InputStreamReader(System.in));
