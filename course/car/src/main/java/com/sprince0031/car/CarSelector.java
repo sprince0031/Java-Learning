@@ -29,5 +29,15 @@ public class CarSelector {
         // CarService carService = new CarService();
         String result = new CarSelector().processArguments(arguments);
         System.out.println(result);
+        
+        Porshe porshe = new Porshe();
+
+        try {
+            porshe.plugInOut();
+            porshe.plugInOut();
+            System.out.println("The estimated range left in the Tycan is " + porshe.checkCarRange());
+        } finally {
+            porshe.close();
+        }
     }
 }
