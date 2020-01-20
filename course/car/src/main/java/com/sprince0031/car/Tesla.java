@@ -9,12 +9,17 @@ public class Tesla implements Car, Asset, Property, Loggable, Cloneable {
         this.colour = colour;
     }
 
+    @Override
+    public String toString() {
+        return getClass().getName() + '[' + ownerName.firstname + " " + ownerName.lastname + ", " + colour.colour + ']'; 
+    }
+
     public static Tesla newInstance(Tesla tesla) {
         return new Tesla(Name.newInstance(tesla.ownerName), Colour.newInstance(tesla.colour));
     }
 
-    public void changeOwner(String newOwner) {
-        ownerName = new Name(newOwner);
+    public void changeOwner(String firstname, String lastname) {
+        ownerName = new Name(firstname, lastname);
     }
 
     public void drive() {
@@ -26,10 +31,10 @@ public class Tesla implements Car, Asset, Property, Loggable, Cloneable {
     }
 
     public String owner() {
-        return ownerName.name;
+        return ownerName.firstname + " " + ownerName.lastname;
     }
 
     public String message() {
-        return "Property of " + ownerName.name;
+        return "Property of " + ownerName.firstname + " " + ownerName.lastname;
     }
 }

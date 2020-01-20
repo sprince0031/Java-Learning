@@ -30,7 +30,7 @@ public class CarSelector {
         String result = new CarSelector().processArguments(arguments);
         System.out.println(result);
         
-        Porshe porshe = new Porshe("Manoj. M");
+        Porshe porshe = new Porshe(new Name("Manoj.", " M"));
 
         try {
             porshe.plugInOut();

@@ -9,19 +9,19 @@ public class PorsheTest {
 
     @Test
     public void shouldAssertThatBothObjectsAreNotSame() {
-        Porshe supsPorshe = new Porshe("Clark Kent");
+        Porshe supsPorshe = new Porshe(new Name ("Clark", "Kent"));
         Porshe batsPorshe = supsPorshe.clone();
         assertNotSame(supsPorshe, batsPorshe);
     }
 
     @Test
     public void shouldReturnDifferentOwnersOfPorshes() {
-        Porshe supsPorshe = new Porshe("Clark Kent");
+        Porshe supsPorshe = new Porshe(new Name ("Clark", "Kent"));
         Porshe batsPorshe = supsPorshe.clone();
         assertEquals(supsPorshe.owner(), batsPorshe.owner()); // both values are same initially.
         System.out.println(batsPorshe.message());
 
-        batsPorshe.sellCar("Bruce Wayne", 170960);
+        batsPorshe.sellCar(new Name ("Bruce", "Wayne"), 170960);
         assertNotEquals(supsPorshe.owner(), batsPorshe.owner()); // new owner value set now.
         System.out.println(batsPorshe.message());
         

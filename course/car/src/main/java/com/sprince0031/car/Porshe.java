@@ -8,11 +8,11 @@ import java.time.Duration;
 
 public class Porshe implements Car, Asset, Property, Loggable, Cloneable {
 
-    private String owner;
+    private Name ownerName;
     private int value = 188960;
 
-    public Porshe(String owner) {
-        this.owner = owner;
+    public Porshe(Name ownerName) {
+        this.ownerName = ownerName;
     }
 
     @Override
@@ -34,16 +34,16 @@ public class Porshe implements Car, Asset, Property, Loggable, Cloneable {
     }
 
     public String owner() {
-        return owner;
+        return ownerName.firstname + " " + ownerName.lastname;
     }
 
-    public void sellCar(String newOwner, int newValue) {
-        owner = newOwner;
+    public void sellCar(Name newOwner, int newValue) {
+        ownerName = newOwner;
         value = newValue;
     }
 
     public String message() {
-        return "Property of " + owner;
+        return "Property of " + ownerName.firstname + " " + ownerName.lastname;
     }
 
     BufferedReader stringInput = new BufferedReader(new InputStreamReader(System.in));
