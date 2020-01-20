@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ArrayListPractice",
+            "request": "launch",
+            "mainClass": "com.sprince0031.collectionspractice.ArrayListPractice",
+            "projectName": "collectionspractice"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - External Terminal",
             "request": "launch",
             "console": "externalTerminal",
