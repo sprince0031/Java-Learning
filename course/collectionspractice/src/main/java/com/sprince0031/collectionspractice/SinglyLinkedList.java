@@ -51,7 +51,19 @@ public class SinglyLinkedList<E> {
         }
         return currentNode;
     }
-    
+
+    // Search by value
+    public Node<E> find(E element) {
+        currentNode = headNode;
+        while (currentNode != null) {
+            if (element.equals(currentNode.getItem())) {
+                return currentNode;
+            }
+            currentNode = currentNode.getNextNode();
+        }
+        return new Node<>("-1");
+    }
+
     public boolean insert(E element, int index) {
         currentNode = getNodeAtIndex(index-1);
         Node<E> newNode = new Node<E>(element, currentNode.getNextNode());
@@ -60,19 +72,32 @@ public class SinglyLinkedList<E> {
         return true;
     }
 
-    // TODO: delete method to delete node at specified index
-    public Node<E> delete(int index) {
+    // delete method to delete node at specified index
+    public Node<E> deleteValueAtIndex(int index) {
         Node<E> nodeBeforeNodeToDelete = getNodeAtIndex(index-1);
         Node<E> nodeToDelete = nodeBeforeNodeToDelete.getNextNode();
         nodeBeforeNodeToDelete.setNextNode(nodeToDelete.getNextNode());
         return nodeToDelete;
     }
 
-    // TODO: Search by value
-
-    // TODO: delete method to delete node containing first occurrance of the element.
-    // public Node<E> delete(E element) {
-
-    // }
+    // delete method to delete node containing first occurrance of the element.
+    public Node<E> deleteFirstOccurance(E element) {
+        currentNode = headNode;
+        boolean flag = false;
+        Node<E> previousNode = null;
+        while (currentNode != null) {
+            if (element.equals(currentNode.getItem())) {
+                flag = true;
+                break;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.getNextNode();
+        }
+        if (flag) {
+            previousNode.setNextNode(currentNode.getNextNode());
+            return currentNode;
+        }
+        return new Node<>("-1");
+    }
 
 }

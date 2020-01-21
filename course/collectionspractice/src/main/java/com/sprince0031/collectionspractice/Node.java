@@ -14,6 +14,10 @@ public class Node<E> {
         }
     }
 
+    public Node(String nullHandler) {
+        item = (E) nullHandler;
+    }
+
     // For singly-linked list
     public Node(E item, Node<E> next) {
         this.item = item;
