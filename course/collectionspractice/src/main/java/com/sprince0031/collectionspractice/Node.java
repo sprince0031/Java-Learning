@@ -5,6 +5,15 @@ public class Node<E> {
     private Node<E> next = null;
     private Node<E> previous = null;
 
+    @Override
+    public String toString() {
+        if (next != null) {
+            return "value: " + item + ", next node: " + next.item;
+        } else {
+            return "value: " + item + ", END OF LIST";
+        }
+    }
+
     // For singly-linked list
     public Node(E item, Node<E> next) {
         this.item = item;
